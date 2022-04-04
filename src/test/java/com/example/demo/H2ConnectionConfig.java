@@ -9,6 +9,9 @@ import org.springframework.r2dbc.connection.init.CompositeDatabasePopulator;
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
+import com.querydsl.sql.H2Templates;
+import com.querydsl.sql.SQLTemplates;
+
 import io.r2dbc.h2.H2ConnectionFactory;
 import io.r2dbc.spi.ConnectionFactory;
 
@@ -31,6 +34,11 @@ public class H2ConnectionConfig extends AbstractR2dbcConfiguration {
 		databasePopulator.addPopulators(new ResourceDatabasePopulator(new ClassPathResource("schema.sql")));
 		initializer.setDatabasePopulator(databasePopulator);
 		return initializer;
+	}
+
+	@Bean
+	public SQLTemplates sqlTemplates() {
+		return H2Templates.DEFAULT;
 	}
 
 }
