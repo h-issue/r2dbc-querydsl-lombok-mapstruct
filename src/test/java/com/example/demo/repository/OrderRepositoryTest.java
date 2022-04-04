@@ -3,31 +3,24 @@ package com.example.demo.repository;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 
-import com.example.demo.H2ConnectionConfig;
 import com.example.demo.domain.Order;
 import com.example.demo.mapper.OrderMapper;
-import com.example.demo.mapper.OrderMapperImpl;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.test.StepVerifier;
 
-@ExtendWith({ SpringExtension.class })
-@Import({ H2ConnectionConfig.class })
-@SpringBootTest(classes = { OrderMapperImpl.class })
 @Slf4j
+@DataR2dbcTest
 class OrderRepositoryTest {
 
 	@Autowired
 	private OrderRepository orderRepository;
 
-	@Autowired
-	private OrderMapper orderMapper;
+	private OrderMapper orderMapper = Mappers.getMapper(OrderMapper.class);
 
 	@Test
 	void testSave() {
