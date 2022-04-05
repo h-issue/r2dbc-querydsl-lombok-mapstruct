@@ -47,6 +47,13 @@
 			<version>${infobip-spring-data-r2dbc-querydsl.version}</version>
 		</dependency>
 
+		<!--
+ 		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+		</dependency>
+		-->
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -132,6 +139,7 @@
 							<outputDirectory>target/generated-sources/java</outputDirectory>
 							<processors>
 								<processor>com.infobip.spring.data.jdbc.annotation.processor.SpringDataJdbcAnnotationProcessor</processor>
+								<!-- <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor> -->
 							</processors>
 						</configuration>
 					</execution>
