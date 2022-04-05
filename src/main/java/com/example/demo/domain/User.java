@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.domain.Persistable;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.AllArgsConstructor;
@@ -18,9 +19,13 @@ import lombok.NoArgsConstructor;
 public class User implements Persistable<UUID> {
 
 	@Id
+	@Column("id")
 	private UUID id;
+	@Column("name")
 	private String name;
+	@Column("created_at")
 	private LocalDateTime createdAt;
+	@Column("updated_at")
 	private LocalDateTime updatedAt;
 
 	@Override
