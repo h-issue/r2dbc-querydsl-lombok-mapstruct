@@ -32,7 +32,7 @@ public class UserService {
 
 	public Flux<User> getUsersByName(final String likeString) {
 		return userRepository.query(query -> query //
-				.select(user.getProjection()) //
+				.select(user) //
 				.from(user) //
 				.where(user.name.like("%" + likeString + "%")) //
 				.limit(10)) //

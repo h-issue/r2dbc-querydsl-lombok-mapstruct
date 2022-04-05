@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.relational.core.mapping.Column;
 
+import com.querydsl.core.annotations.QuerySupertype;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 // @MappedSuperclass
+@QuerySupertype
 public abstract class BaseDomain {
 
 	@Column("created_at")
