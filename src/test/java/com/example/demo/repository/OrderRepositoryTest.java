@@ -5,16 +5,19 @@ import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 
 import com.example.demo.domain.Order;
 import com.example.demo.mapper.OrderMapper;
+import com.infobip.spring.data.r2dbc.QuerydslR2dbcRepositoriesAutoConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.test.StepVerifier;
 
 @Slf4j
 @DataR2dbcTest
+@ImportAutoConfiguration(classes = { QuerydslR2dbcRepositoriesAutoConfiguration.class })
 class OrderRepositoryTest {
 
 	@Autowired
