@@ -7,8 +7,6 @@ import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import com.querydsl.core.annotations.QueryEntity;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table("t_order")
-@QueryEntity
+//@QueryEntity
 public class Order extends BaseDomain implements Persistable<UUID> {
 
 	@Id

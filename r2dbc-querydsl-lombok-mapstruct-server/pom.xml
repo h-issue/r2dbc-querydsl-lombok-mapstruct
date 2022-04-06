@@ -130,8 +130,8 @@
 						<configuration>
 							<outputDirectory>target/generated-sources/java</outputDirectory>
 							<processors>
-								<!-- <processor>com.infobip.spring.data.jdbc.annotation.processor.SpringDataJdbcAnnotationProcessor</processor> -->
-								<processor>com.querydsl.apt.QuerydslAnnotationProcessor</processor>
+								<processor>com.infobip.spring.data.jdbc.annotation.processor.SpringDataJdbcAnnotationProcessor</processor>
+								<!-- <processor>com.querydsl.apt.QuerydslAnnotationProcessor</processor> -->
 								<!-- <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor> -->
 							</processors>
 						</configuration>

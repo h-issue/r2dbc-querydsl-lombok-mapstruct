@@ -1,12 +1,13 @@
 package com.example.demo.domain;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import com.example.demo.core.Uid;
-import com.querydsl.core.annotations.QueryEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,17 +19,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table("t_user")
-@QueryEntity
-public class User extends BaseDomain implements Persistable<Uid> {
+//@QueryEntity
+public class User implements Persistable<Uid> {
 
 	@Id
 	@Column("id")
 	private Uid id;
+
 	@Column("name")
 	private String name;
 
+	@Column("created_at")
+	private LocalDateTime createdAt;
+
+	@Column("updated_at")
+	private LocalDateTime updatedAt;
+
 	@Override
 	public boolean isNew() {
-		return getCreatedAt() == null;
+		return createdAt == null;
 	}
 }
