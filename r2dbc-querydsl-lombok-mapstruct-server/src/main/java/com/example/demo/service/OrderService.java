@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 
+import com.example.demo.core.Uid;
 import com.example.demo.domain.Order;
 import com.example.demo.repository.OrderRepository;
 
@@ -19,7 +18,7 @@ public class OrderService {
 
 	public Mono<Order> pendingAnOrder() {
 		Order newOrder = new Order();
-		newOrder.setId(UUID.randomUUID());
+		newOrder.setId(Uid.getUid());
 		newOrder.setCreatedBy("test-user");
 		return orderRepository.save(newOrder);
 	}

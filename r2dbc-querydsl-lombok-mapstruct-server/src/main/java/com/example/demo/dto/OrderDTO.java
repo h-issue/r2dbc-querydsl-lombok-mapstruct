@@ -1,7 +1,8 @@
 package com.example.demo.dto;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
+
+import com.example.demo.core.Uid;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderDTO {
 
-	private UUID id;
+	private Uid id;
 	private String createdBy;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;

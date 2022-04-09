@@ -1,13 +1,13 @@
 package com.example.demo.repository;
 
-import java.util.UUID;
-
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 
+import com.example.demo.config.R2dbcConfiguration;
+import com.example.demo.core.Uid;
 import com.example.demo.domain.Order;
 import com.example.demo.mapper.OrderMapper;
 import com.infobip.spring.data.r2dbc.QuerydslR2dbcRepositoriesAutoConfiguration;
@@ -17,7 +17,7 @@ import reactor.test.StepVerifier;
 
 @Slf4j
 @DataR2dbcTest
-@ImportAutoConfiguration(classes = { QuerydslR2dbcRepositoriesAutoConfiguration.class })
+@ImportAutoConfiguration(classes = { QuerydslR2dbcRepositoriesAutoConfiguration.class, R2dbcConfiguration.class })
 class OrderRepositoryTest {
 
 	@Autowired
@@ -27,7 +27,7 @@ class OrderRepositoryTest {
 
 	@Test
 	void testSave() {
-		UUID id = UUID.randomUUID();
+		Uid id = Uid.getUid();
 		Order newOrder = new Order();
 		newOrder.setId(id);
 		newOrder.setCreatedBy("test-user");
@@ -44,7 +44,7 @@ class OrderRepositoryTest {
 
 	@Test
 	void testMapper() {
-		UUID id = UUID.randomUUID();
+		Uid id = Uid.getUid();
 		String createdBy = "test-dto";
 		Order newOrder = new Order();
 		newOrder.setId(id);

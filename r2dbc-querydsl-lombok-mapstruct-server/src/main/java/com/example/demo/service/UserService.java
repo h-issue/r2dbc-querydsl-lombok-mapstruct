@@ -19,9 +19,7 @@ public class UserService {
 	final private UserRepository userRepository;
 
 	public Mono<User> pendingAUser() {
-		User newUser = new User();
-		newUser.setId(Uid.getUid());
-		newUser.setName("test-user");
+		User newUser = new User(Uid.getUid(), "test-user", null, null).setAsNew();
 		return userRepository.save(newUser);
 	}
 
